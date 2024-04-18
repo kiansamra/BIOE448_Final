@@ -11,8 +11,8 @@ const int preparingDuration = 10; // Duration for preparing in seconds
 
 const int readyLED = 8; // Pin for the LED indicating device ready
 const int blowingLED = 9; // Pin for the LED indicating user blowing
-const int funDriveLED = 10; // Pin for the LED indicating fun drive time
-const int lameDriveLED = 7; // Pin for the LED indicating lame drive time
+const int funDriveLED = 7; // Pin for the LED indicating fun drive time
+const int lameDriveLED = 10; // Pin for the LED indicating lame drive time
 
 void setup() {
   lcd.begin(16, 2); // Initialize the LCD screen
@@ -112,7 +112,7 @@ void loop() {
 int measureAlcoholLevel() {
   // Measure alcohol level using MQ3 sensor
   int sensorValue = analogRead(mq3Pin);
-  int alcoholLevel = map(sensorValue, 0, 1023, 0, 100); // Map the sensor value to percentage
+  int alcoholLevel = map(sensorValue, 200, 1023, 0, 100); // Map the sensor value to percentage
 
   return alcoholLevel;
 }
