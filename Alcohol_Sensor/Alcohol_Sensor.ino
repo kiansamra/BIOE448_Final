@@ -22,6 +22,18 @@ void setup() {
   pinMode(funDriveLED, OUTPUT); // Set fun drive LED pin as output
   pinMode(lameDriveLED, OUTPUT); // Set lame drive LED pin as output
   Serial.begin(9600); // Initialize serial communication for debugging
+
+  delay(1500);
+  initProperties();
+  //Connect to cloud and get info/errors
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+  //Wait for cloud connection
+  while (ArduinoCloud.connected() != 1) {
+  ArduinoCloud.update();
+  delay(500);
+}
 }
 
 void loop() {
@@ -81,6 +93,8 @@ void loop() {
   lcd.print("Wait for result");
   delay(delayBeforeResult * 1000); // Delay before displaying the result
   
+  ArduinoCloud.update();
+  Serial.println(alcoholLevel);
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("BAC Level:");
