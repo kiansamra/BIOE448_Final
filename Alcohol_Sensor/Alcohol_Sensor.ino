@@ -127,7 +127,8 @@ void loop() {
 int measureAlcoholLevel() {
   // Measure alcohol level using MQ3 sensor
   int sensorValue = analogRead(mq3Pin);
-  float alcoholLevel = map(sensorValue, 120, 3500, 0, 1); // Map the sensor value to percentage with linear scale such that 400 is the legal threshold
+  float alcoholLevel = map(sensorValue, 200, 3500, 0, 1); // Map the sensor value to percentage with linear scale such that 400 is the legal threshold
+  // linear mapping chosen because MQSensorsLib library uses this model
 
   return alcoholLevel;
 }
