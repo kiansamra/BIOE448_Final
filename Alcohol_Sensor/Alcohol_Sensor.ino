@@ -81,7 +81,7 @@ void loop() {
   // Turn off the blowing LED at the end of blowing phase
   digitalWrite(blowingLED, LOW);
   
-  int alcoholLevel = measureAlcoholLevel();
+  float alcoholLevel = measureAlcoholLevel();
   
   // Ensure alcohol level is never less than 0
   if (alcoholLevel < 0) {
@@ -127,7 +127,7 @@ void loop() {
 int measureAlcoholLevel() {
   // Measure alcohol level using MQ3 sensor
   int sensorValue = analogRead(mq3Pin);
-  int alcoholLevel = map(sensorValue, 200, 1023, 0, 100); // Map the sensor value to percentage
+  float alcoholLevel = map(sensorValue, 120, 3500, 0, 1); // Map the sensor value to percentage with linear scale such that 400 is the legal threshold
 
   return alcoholLevel;
 }
