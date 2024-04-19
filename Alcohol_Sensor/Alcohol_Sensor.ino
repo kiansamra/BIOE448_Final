@@ -1,4 +1,5 @@
 #include <LiquidCrystal.h>
+#include "thingProperties.h"
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // Initialize the LCD library
 
@@ -31,9 +32,9 @@ void setup() {
   ArduinoCloud.printDebugInfo();
   //Wait for cloud connection
   while (ArduinoCloud.connected() != 1) {
-  ArduinoCloud.update();
-  delay(500);
-}
+    ArduinoCloud.update();
+    delay(500);
+  }
 }
 
 void loop() {
