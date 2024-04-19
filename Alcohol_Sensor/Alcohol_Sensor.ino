@@ -103,14 +103,14 @@ void loop() {
   lcd.print("%");
 
   // Check if alcohol level is greater than or equal to 8% and turn on fun drive LED
-  if (alcoholLevel >= 8) {
+  if (alcoholLevel >= 0.08) {
     digitalWrite(funDriveLED, HIGH);
     lcd.setCursor(0, 1);
     lcd.print(" Fun Drive Time!");
   }
   
   // Check if alcohol level is less than 8% and turn on lame drive LED
-  if (alcoholLevel < 8) {
+  if (alcoholLevel < 0.08) {
     digitalWrite(lameDriveLED, HIGH);
     lcd.setCursor(0, 1);
     lcd.print(" Lame Drive Time!");
