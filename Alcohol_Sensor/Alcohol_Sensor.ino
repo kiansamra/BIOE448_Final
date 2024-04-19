@@ -132,3 +132,8 @@ int measureAlcoholLevel() {
 
   return alcoholLevel;
 }
+
+void onAlcoholLevelChange()  {
+  ArduinoCloud.update();
+  // Add your code here to act upon AlcoholLevel change
+}
