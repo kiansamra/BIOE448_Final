@@ -4,7 +4,7 @@
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // Initialize the LCD library
 
 const int mq3Pin = A0; // Analog pin for MQ3 sensor
-const int threshold = 100; // Set your threshold value here
+const int threshold = 50; // Set your threshold value here
 const int blowDuration = 5; // Duration for blowing in seconds
 const int delayBeforeResult = 5; // Delay before displaying the result in seconds
 const int resultHoldDuration = 20; // Duration to hold the result on the screen in seconds
